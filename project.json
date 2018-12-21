@@ -1,0 +1,7 @@
+{
+    "id":"reflecs.components.graphics",
+    "type":"package",
+    "value": {
+        "use": ["reflecs"]
+    }
+}
