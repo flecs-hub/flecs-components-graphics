@@ -1,7 +1,7 @@
 #ifndef REFLECS_COMPONENTS_GRAPHICS_H
 #define REFLECS_COMPONENTS_GRAPHICS_H
 
-#include "prebaked.h"
+#include "bake_config.h"
 #include <stdint.h>
 
 #ifdef __cplusplus
