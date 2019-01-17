@@ -18,5 +18,8 @@ void EcsComponentsGraphics(
     if (do_2d) {
         ECS_COMPONENT(world, EcsCanvas2D);
         handles->Canvas2D = EcsCanvas2D_h;
+
+        ECS_COMPONENT(world, EcsCamera2D);
+        handles->Camera2D = EcsCamera2D_h;
     }
 }

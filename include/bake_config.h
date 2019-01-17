@@ -19,6 +19,7 @@
 
 /* Headers of public dependencies */
 #include <reflecs>
+#include <reflecs.components.transform>
 
 /* Headers of private dependencies */
 #ifdef REFLECS_COMPONENTS_GRAPHICS_IMPL

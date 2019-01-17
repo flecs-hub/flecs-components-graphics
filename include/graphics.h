@@ -29,9 +29,16 @@ typedef struct EcsCanvas2D {
     EcsColor background_color;
 } EcsCanvas2D;
 
+typedef struct EcsCamera2D {
+    EcsVec2 position;
+    EcsVec2 zoom;
+    bool enabled;
+} EcsCamera2D;
+
 typedef struct EcsComponentsGraphicsHandles {
-    EcsHandle Color;
-    EcsHandle Canvas2D;
+    EcsEntity Color;
+    EcsEntity Canvas2D;
+    EcsEntity Camera2D;
 } EcsComponentsGraphicsHandles;
 
 void EcsComponentsGraphics(
@@ -41,7 +48,8 @@ void EcsComponentsGraphics(
 
 #define EcsComponentsGraphics_DeclareHandles(handles)\
     EcsDeclareHandle(handles, Color);\
-    EcsDeclareHandle(handles, Canvas2D);
+    EcsDeclareHandle(handles, Canvas2D);\
+    EcsDeclareHandle(handles, Camera2D);
 
 #ifdef __cplusplus
 }
