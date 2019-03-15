@@ -1,14 +1,6 @@
 #include <include/graphics.h>
 #include <string.h>
 
-void EcsAddContainerToCanvas(EcsRows *rows) {
-    for (void *row = rows->first; row < rows->last; row = ecs_next(rows, row)) {
-        EcsEntity e = ecs_entity(rows, row, 0);
-        ecs_add(rows->world, e, EcsRoot_h);
-        ecs_add(rows->world, e, EcsContainer_h);
-    }
-}
-
 void EcsComponentsGraphics(
     EcsWorld *world,
     int flags,
@@ -21,17 +13,13 @@ void EcsComponentsGraphics(
     memset(handles, 0, sizeof(EcsComponentsGraphicsHandles));
 
     ECS_COMPONENT(world, EcsColor);
-    handles->Color = EcsColor_h;
+    ECS_SET_COMPONENT(handles, EcsColor);
 
     if (do_2d) {
         ECS_COMPONENT(world, EcsCanvas2D);
-        handles->Canvas2D = EcsCanvas2D_h;
+        ECS_SET_COMPONENT(handles, EcsCanvas2D);
 
         ECS_COMPONENT(world, EcsCamera2D);
-        handles->Camera2D = EcsCamera2D_h;
+        ECS_SET_COMPONENT(handles, EcsCamera2D);
     }
-
-    /* System that automatically adds EcsRoot and EcsContainer to canvas */
-    ECS_SYSTEM(world, EcsAddContainerToCanvas, EcsOnAdd, EcsCanvas2D);
-    ecs_add(world, EcsAddContainerToCanvas_h, EcsHidden_h);
 }

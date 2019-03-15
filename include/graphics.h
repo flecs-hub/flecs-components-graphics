@@ -1,5 +1,5 @@
-#ifndef REFLECS_COMPONENTS_GRAPHICS_H
-#define REFLECS_COMPONENTS_GRAPHICS_H
+#ifndef FLECS_COMPONENTS_GRAPHICS_H
+#define FLECS_COMPONENTS_GRAPHICS_H
 
 #include "bake_config.h"
 #include <stdint.h>
@@ -36,9 +36,9 @@ typedef struct EcsCamera2D {
 } EcsCamera2D;
 
 typedef struct EcsComponentsGraphicsHandles {
-    EcsEntity Color;
-    EcsEntity Canvas2D;
-    EcsEntity Camera2D;
+    ECS_DECLARE_COMPONENT(EcsColor);
+    ECS_DECLARE_COMPONENT(EcsCanvas2D);
+    ECS_DECLARE_COMPONENT(EcsCamera2D);
 } EcsComponentsGraphicsHandles;
 
 void EcsComponentsGraphics(
@@ -47,9 +47,9 @@ void EcsComponentsGraphics(
     void *handles_out);
 
 #define EcsComponentsGraphics_DeclareHandles(handles)\
-    EcsDeclareHandle(handles, Color);\
-    EcsDeclareHandle(handles, Canvas2D);\
-    EcsDeclareHandle(handles, Camera2D);
+    ECS_IMPORT_COMPONENT(handles, EcsColor);\
+    ECS_IMPORT_COMPONENT(handles, EcsCanvas2D);\
+    ECS_IMPORT_COMPONENT(handles, EcsCamera2D);
 
 #ifdef __cplusplus
 }

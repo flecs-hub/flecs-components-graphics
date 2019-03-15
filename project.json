@@ -1,9 +1,9 @@
 {
-    "id":"reflecs.components.graphics",
+    "id":"flecs.components.graphics",
     "type":"package",
     "value": {
         "author": "Sander Mertens",
-        "description": "Graphics components for reflecs",
-        "use": ["reflecs", "reflecs.components.transform"]
+        "description": "Graphics components for flecs",
+        "use": ["flecs", "flecs.components.transform"]
     }
 }
