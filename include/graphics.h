@@ -46,7 +46,7 @@ void EcsComponentsGraphics(
     int flags,
     void *handles_out);
 
-#define EcsComponentsGraphics_DeclareHandles(handles)\
+#define EcsComponentsGraphics_ImportHandles(handles)\
     ECS_IMPORT_COMPONENT(handles, EcsColor);\
     ECS_IMPORT_COMPONENT(handles, EcsCanvas2D);\
     ECS_IMPORT_COMPONENT(handles, EcsCamera2D);
