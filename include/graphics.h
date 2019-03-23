@@ -24,6 +24,7 @@ typedef struct EcsColor {
 
 typedef struct EcsCanvas2D {
     EcsRect window;
+    EcsRect window_actual;
     EcsRect viewport;
     const char *title;
     EcsColor background_color;
