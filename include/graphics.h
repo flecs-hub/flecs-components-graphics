@@ -43,7 +43,7 @@ typedef struct EcsComponentsGraphicsHandles {
 } EcsComponentsGraphicsHandles;
 
 void EcsComponentsGraphics(
-    EcsWorld *world,
+    ecs_world_t *world,
     int flags,
     void *handles_out);
 
