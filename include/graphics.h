@@ -2,7 +2,6 @@
 #define FLECS_COMPONENTS_GRAPHICS_H
 
 #include "bake_config.h"
-#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
