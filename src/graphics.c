@@ -13,7 +13,11 @@ void EcsComponentsGraphics(
     memset(handles, 0, sizeof(EcsComponentsGraphicsHandles));
 
     ECS_COMPONENT(world, EcsColor);
+    ECS_COMPONENT(world, EcsLineColor);
+    ECS_COMPONENT(world, EcsLineWidth);
     ECS_SET_COMPONENT(handles, EcsColor);
+    ECS_SET_COMPONENT(handles, EcsLineColor);
+    ECS_SET_COMPONENT(handles, EcsLineWidth);
 
     if (do_2d) {
         ECS_COMPONENT(world, EcsCanvas2D);

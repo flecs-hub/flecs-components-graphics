@@ -21,6 +21,10 @@ typedef struct EcsColor {
     float a;
 } EcsColor;
 
+typedef EcsColor EcsLineColor;
+
+typedef uint16_t EcsLineWidth;
+
 typedef struct EcsCanvas2D {
     EcsRect window;
     EcsRect window_actual;
@@ -37,6 +41,8 @@ typedef struct EcsCamera2D {
 
 typedef struct EcsComponentsGraphicsHandles {
     ECS_DECLARE_COMPONENT(EcsColor);
+    ECS_DECLARE_COMPONENT(EcsLineColor);
+    ECS_DECLARE_COMPONENT(EcsLineWidth);
     ECS_DECLARE_COMPONENT(EcsCanvas2D);
     ECS_DECLARE_COMPONENT(EcsCamera2D);
 } EcsComponentsGraphicsHandles;
@@ -48,6 +54,8 @@ void EcsComponentsGraphics(
 
 #define EcsComponentsGraphics_ImportHandles(handles)\
     ECS_IMPORT_COMPONENT(handles, EcsColor);\
+    ECS_IMPORT_COMPONENT(handles, EcsLineColor);\
+    ECS_IMPORT_COMPONENT(handles, EcsLineWidth);\
     ECS_IMPORT_COMPONENT(handles, EcsCanvas2D);\
     ECS_IMPORT_COMPONENT(handles, EcsCamera2D);
 
