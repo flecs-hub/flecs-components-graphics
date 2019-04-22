@@ -39,20 +39,19 @@ typedef struct EcsCamera2D {
     bool enabled;
 } EcsCamera2D;
 
-typedef struct EcsComponentsGraphicsHandles {
+typedef struct FlecsComponentsGraphics {
     ECS_DECLARE_COMPONENT(EcsColor);
     ECS_DECLARE_COMPONENT(EcsLineColor);
     ECS_DECLARE_COMPONENT(EcsLineWidth);
     ECS_DECLARE_COMPONENT(EcsCanvas2D);
     ECS_DECLARE_COMPONENT(EcsCamera2D);
-} EcsComponentsGraphicsHandles;
+} FlecsComponentsGraphics;
 
-void EcsComponentsGraphics(
+void FlecsComponentsGraphicsImport(
     ecs_world_t *world,
-    int flags,
-    void *handles_out);
+    int flags);
 
-#define EcsComponentsGraphics_ImportHandles(handles)\
+#define FlecsComponentsGraphicsImportHandles(handles)\
     ECS_IMPORT_COMPONENT(handles, EcsColor);\
     ECS_IMPORT_COMPONENT(handles, EcsLineColor);\
     ECS_IMPORT_COMPONENT(handles, EcsLineWidth);\

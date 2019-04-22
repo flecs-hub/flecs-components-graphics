@@ -1,16 +1,13 @@
 #include <include/graphics.h>
 #include <string.h>
 
-void EcsComponentsGraphics(
+void FlecsComponentsGraphicsImport(
     ecs_world_t *world,
-    int flags,
-    void *handles_out)
+    int flags)
 {
-    EcsComponentsGraphicsHandles *handles = handles_out;
     bool do_2d = !flags || flags & ECS_2D;
-    // bool do_3d = !flags || flags & ECS_3D;
 
-    memset(handles, 0, sizeof(EcsComponentsGraphicsHandles));
+    ECS_MODULE(world, FlecsComponentsGraphics);
 
     ECS_COMPONENT(world, EcsColor);
     ECS_COMPONENT(world, EcsLineColor);
