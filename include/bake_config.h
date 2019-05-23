@@ -33,7 +33,7 @@
 
 /* Convenience macro for exporting symbols */
 #ifndef FLECS_COMPONENTS_GRAPHICS_STATIC
-  #if FLECS_COMPONENTS_GRAPHICS_IMPL && defined _MSC_VER
+  #if FLECS_COMPONENTS_GRAPHICS_IMPL && (defined(_MSC_VER) || defined(__MINGW32__))
     #define FLECS_COMPONENTS_GRAPHICS_EXPORT __declspec(dllexport)
   #elif FLECS_COMPONENTS_GRAPHICS_IMPL
     #define FLECS_COMPONENTS_GRAPHICS_EXPORT __attribute__((__visibility__("default")))
