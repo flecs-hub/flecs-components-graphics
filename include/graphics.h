@@ -47,6 +47,7 @@ typedef struct FlecsComponentsGraphics {
     ECS_DECLARE_COMPONENT(EcsCamera2D);
 } FlecsComponentsGraphics;
 
+FLECS_COMPONENTS_GRAPHICS_EXPORT
 void FlecsComponentsGraphicsImport(
     ecs_world_t *world,
     int flags);
