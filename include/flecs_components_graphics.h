@@ -1,7 +1,7 @@
 #ifndef FLECS_COMPONENTS_GRAPHICS_H
 #define FLECS_COMPONENTS_GRAPHICS_H
 
-#include "bake_config.h"
+#include <flecs-components-graphics/bake_config.h>
 
 #ifdef __cplusplus
 extern "C" {
