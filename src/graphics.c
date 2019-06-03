@@ -1,4 +1,4 @@
-#include <include/graphics.h>
+#include <flecs_components_graphics.h>
 #include <string.h>
 
 void FlecsComponentsGraphicsImport(
