@@ -12,15 +12,15 @@ void FlecsComponentsGraphicsImport(
     ECS_COMPONENT(world, EcsColor);
     ECS_COMPONENT(world, EcsLineColor);
     ECS_COMPONENT(world, EcsLineWidth);
-    ECS_SET_COMPONENT(handles, EcsColor);
-    ECS_SET_COMPONENT(handles, EcsLineColor);
-    ECS_SET_COMPONENT(handles, EcsLineWidth);
+    ECS_SET_COMPONENT(EcsColor);
+    ECS_SET_COMPONENT(EcsLineColor);
+    ECS_SET_COMPONENT(EcsLineWidth);
 
     if (do_2d) {
         ECS_COMPONENT(world, EcsCanvas2D);
-        ECS_SET_COMPONENT(handles, EcsCanvas2D);
+        ECS_SET_COMPONENT(EcsCanvas2D);
 
         ECS_COMPONENT(world, EcsCamera2D);
-        ECS_SET_COMPONENT(handles, EcsCamera2D);
+        ECS_SET_COMPONENT(EcsCamera2D);
     }
 }
