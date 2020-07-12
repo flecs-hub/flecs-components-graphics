@@ -4,6 +4,9 @@
     "value": {
         "author": "Sander Mertens",
         "description": "Graphics components for flecs",
-        "use": ["flecs", "flecs.components.transform"]
+        "use": [
+            "flecs", 
+            "flecs.meta"
+        ]
     }
 }

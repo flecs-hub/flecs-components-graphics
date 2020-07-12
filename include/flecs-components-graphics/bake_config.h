@@ -19,24 +19,19 @@
 
 /* Headers of public dependencies */
 #include <flecs.h>
-#include <flecs_components_transform.h>
-
-/* Headers of private dependencies */
-#ifdef FLECS_COMPONENTS_GRAPHICS_IMPL
-/* No dependencies */
-#endif
+#include <flecs_meta.h>
 
 /* Convenience macro for exporting symbols */
-#ifndef FLECS_COMPONENTS_GRAPHICS_STATIC
-  #if FLECS_COMPONENTS_GRAPHICS_IMPL && (defined(_MSC_VER) || defined(__MINGW32__))
-    #define FLECS_COMPONENTS_GRAPHICS_EXPORT __declspec(dllexport)
-  #elif FLECS_COMPONENTS_GRAPHICS_IMPL
-    #define FLECS_COMPONENTS_GRAPHICS_EXPORT __attribute__((__visibility__("default")))
-  #elif defined _MSC_VER
-    #define FLECS_COMPONENTS_GRAPHICS_EXPORT __declspec(dllimport)
-  #else
-    #define FLECS_COMPONENTS_GRAPHICS_EXPORT
-  #endif
+#ifndef flecs_components_graphics_STATIC
+#if flecs_components_graphics_EXPORTS && (defined(_MSC_VER) || defined(__MINGW32__))
+  #define FLECS_COMPONENTS_GRAPHICS_EXPORT __declspec(dllexport)
+#elif flecs_components_graphics_EXPORTS
+  #define FLECS_COMPONENTS_GRAPHICS_EXPORT __attribute__((__visibility__("default")))
+#elif defined _MSC_VER
+  #define FLECS_COMPONENTS_GRAPHICS_EXPORT __declspec(dllimport)
+#else
+  #define FLECS_COMPONENTS_GRAPHICS_EXPORT
+#endif
 #else
   #define FLECS_COMPONENTS_GRAPHICS_EXPORT
 #endif

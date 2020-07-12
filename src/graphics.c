@@ -2,25 +2,24 @@
 #include <string.h>
 
 void FlecsComponentsGraphicsImport(
-    ecs_world_t *world,
-    int flags)
+    ecs_world_t *world)
 {
-    bool do_2d = !flags || flags & ECS_2D;
-
     ECS_MODULE(world, FlecsComponentsGraphics);
 
-    ECS_COMPONENT(world, EcsColor);
-    ECS_COMPONENT(world, EcsLineColor);
-    ECS_COMPONENT(world, EcsLineWidth);
-    ECS_SET_COMPONENT(EcsColor);
-    ECS_SET_COMPONENT(EcsLineColor);
-    ECS_SET_COMPONENT(EcsLineWidth);
+    ecs_set_name_prefix(world, "ecs");
 
-    if (do_2d) {
-        ECS_COMPONENT(world, EcsCanvas2D);
-        ECS_SET_COMPONENT(EcsCanvas2D);
+    ECS_IMPORT(world, FlecsMeta);
 
-        ECS_COMPONENT(world, EcsCamera2D);
-        ECS_SET_COMPONENT(EcsCamera2D);
-    }
+    ECS_META(world, ecs_vert2_t);
+    ECS_META(world, ecs_vert3_t);
+    ECS_META(world, ecs_poly8_t);
+    ECS_META(world, ecs_rect_t);
+    ECS_META(world, ecs_rgb_t);
+    ECS_META(world, ecs_rgba_t);
+
+    ECS_EXPORT_COMPONENT(ecs_vert2_t);
+    ECS_EXPORT_COMPONENT(ecs_vert3_t);
+    ECS_EXPORT_COMPONENT(ecs_rect_t);
+    ECS_EXPORT_COMPONENT(ecs_rgb_t);
+    ECS_EXPORT_COMPONENT(ecs_rgba_t);
 }
