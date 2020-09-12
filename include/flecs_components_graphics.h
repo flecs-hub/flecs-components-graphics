@@ -68,4 +68,32 @@ void FlecsComponentsGraphicsImport(
 }
 #endif
 
+#ifdef __cplusplus
+
+namespace flecs {
+namespace components {
+
+class graphics : FlecsComponentsGraphics {
+public:
+    using vert2_t = ecs_vert2_t;
+    using vert3_t = ecs_vert3_t;
+
+    using poly8_t = ecs_poly8_t;
+    using rect_t = ecs_rect_t;
+
+    using rgb_t = ecs_rgb_t;
+    using rgba_t = ecs_rgba_t;
+
+    graphics(flecs::world& ecs) {
+        FlecsComponentsGraphicsImport(ecs.c_ptr());
+
+        ecs.module<flecs::components::graphics>();
+    }
+};
+
+}
+}
+
+#endif
+
 #endif
