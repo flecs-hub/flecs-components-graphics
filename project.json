@@ -5,7 +5,8 @@
         "author": "Sander Mertens",
         "description": "Graphics components for flecs",
         "use": [
-            "flecs", 
+            "cglm",
+            "flecs",
             "flecs.meta"
         ]
     }

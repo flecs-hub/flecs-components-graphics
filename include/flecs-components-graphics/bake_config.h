@@ -18,6 +18,7 @@
 #define FLECS_COMPONENTS_GRAPHICS_BAKE_CONFIG_H
 
 /* Headers of public dependencies */
+#include <cglm.h>
 #include <flecs.h>
 #include <flecs_meta.h>
 
