@@ -12,7 +12,13 @@ void FlecsComponentsGraphicsImport(
 
     ECS_COMPONENT(world, EcsCamera);
     ECS_COMPONENT(world, EcsDirectionalLight);
+    ECS_COMPONENT(world, EcsColor);
+    ECS_COMPONENT(world, EcsSpecular);
+    ECS_COMPONENT(world, EcsEmissive);
 
     ECS_EXPORT_COMPONENT(EcsCamera);
     ECS_EXPORT_COMPONENT(EcsDirectionalLight);
+    ECS_EXPORT_COMPONENT(EcsColor);
+    ECS_EXPORT_COMPONENT(EcsSpecular);
+    ECS_EXPORT_COMPONENT(EcsEmissive);
 }
