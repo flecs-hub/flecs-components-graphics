@@ -33,9 +33,13 @@ typedef struct EcsDirectionalLight {
     vec3 color;
 } EcsDirectionalLight;
 
-typedef struct EcsColor {
+typedef struct EcsRgb {
+    ecs_rgb_t value;
+} EcsRgb;
+
+typedef struct EcsRgba {
     ecs_rgba_t value;
-} EcsColor;
+} EcsRgba;
 
 typedef struct EcsSpecular {
     float specular_power;
@@ -49,7 +53,8 @@ typedef struct EcsEmissive {
 typedef struct FlecsComponentsGraphics {
     ECS_DECLARE_COMPONENT(EcsCamera);
     ECS_DECLARE_COMPONENT(EcsDirectionalLight);
-    ECS_DECLARE_COMPONENT(EcsColor);
+    ECS_DECLARE_COMPONENT(EcsRgb);
+    ECS_DECLARE_COMPONENT(EcsRgba);
     ECS_DECLARE_COMPONENT(EcsSpecular);
     ECS_DECLARE_COMPONENT(EcsEmissive);
 } FlecsComponentsGraphics;
@@ -61,7 +66,8 @@ void FlecsComponentsGraphicsImport(
 #define FlecsComponentsGraphicsImportHandles(handles)\
     ECS_IMPORT_COMPONENT(handles, EcsCamera);\
     ECS_IMPORT_COMPONENT(handles, EcsDirectionalLight);\
-    ECS_IMPORT_COMPONENT(handles, EcsColor);\
+    ECS_IMPORT_COMPONENT(handles, EcsRgb);\
+    ECS_IMPORT_COMPONENT(handles, EcsRgba);\
     ECS_IMPORT_COMPONENT(handles, EcsSpecular);\
     ECS_IMPORT_COMPONENT(handles, EcsEmissive);
 
@@ -145,7 +151,8 @@ public:
         }
     };
 
-    using Color = EcsColor;
+    using Rgb = EcsRgb;
+    using Rgba = EcsRgba;
     using Specular = EcsSpecular;
     using Emissive = EcsEmissive;
 
@@ -155,7 +162,8 @@ public:
         ecs.module<flecs::components::graphics>();
         ecs.pod_component<Camera>("flecs::components::graphics::Camera");
         ecs.pod_component<DirectionalLight>("flecs::components::graphics::DirectionalLight");
-        ecs.pod_component<Color>("flecs::components::graphics::Color");
+        ecs.pod_component<Rgb>("flecs::components::graphics::Rgb");
+        ecs.pod_component<Rgba>("flecs::components::graphics::Rgba");
         ecs.pod_component<Specular>("flecs::components::graphics::Specular");
         ecs.pod_component<Emissive>("flecs::components::graphics::Emissive");
     }
