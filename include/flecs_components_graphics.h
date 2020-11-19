@@ -25,6 +25,8 @@ typedef struct EcsCamera {
     vec3 lookat;
     vec3 up;
     float fov;
+    float near;
+    float far;
 } EcsCamera;
 
 typedef struct EcsDirectionalLight {
@@ -59,7 +61,7 @@ typedef struct FlecsComponentsGraphics {
     ECS_DECLARE_COMPONENT(EcsEmissive);
 } FlecsComponentsGraphics;
 
-FLECS_COMPONENTS_GRAPHICS_EXPORT
+FLECS_COMPONENTS_GRAPHICS_API
 void FlecsComponentsGraphicsImport(
     ecs_world_t *world);
 
@@ -100,6 +102,8 @@ public:
             this->set_lookat(0, 1, 1);
             this->set_up(0, -1, 0);
             this->set_fov(30);
+            this->near = 0.1;
+            this->far = 100;
         }
 
         void set_position(float x, float y, float z) {
