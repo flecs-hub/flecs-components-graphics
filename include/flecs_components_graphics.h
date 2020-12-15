@@ -102,7 +102,7 @@ public:
             this->set_lookat(0, 1, 1);
             this->set_up(0, -1, 0);
             this->set_fov(30);
-            this->near = 0.1;
+            this->near = 0.1f;
             this->far = 100;
         }
 
