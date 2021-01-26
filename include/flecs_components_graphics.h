@@ -78,6 +78,7 @@ void FlecsComponentsGraphicsImport(
 #endif
 
 #ifdef __cplusplus
+#ifndef FLECS_NO_CPP
 
 namespace flecs {
 namespace components {
@@ -176,6 +177,7 @@ public:
 }
 }
 
+#endif
 #endif
 
 #endif
