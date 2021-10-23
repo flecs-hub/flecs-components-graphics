@@ -3,75 +3,60 @@
 
 #include <flecs-components-graphics/bake_config.h>
 
+// Reflection system boilerplate
+#undef ECS_META_IMPL
+#ifndef flecs_components_graphics_EXPORTS
+#define ECS_META_IMPL EXTERN // Ensure meta symbols are only defined once
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef struct ecs_rgb_t {
-    float r;
-    float g;
-    float b;
-} ecs_rgb_t;
-
-typedef struct ecs_rgba_t {
-    float r;
-    float g;
-    float b;
-    float a;
-} ecs_rgba_t;
-
-typedef struct EcsCamera {
+ECS_STRUCT(EcsCamera, {
     vec3 position;
     vec3 lookat;
     vec3 up;
     float fov;
     float near;
     float far;
-} EcsCamera;
+});
 
-typedef struct EcsDirectionalLight {
+ECS_STRUCT(EcsDirectionalLight, {
     vec3 position;
     vec3 direction;
     vec3 color;
-} EcsDirectionalLight;
+});
 
-typedef struct EcsRgb {
-    ecs_rgb_t value;
-} EcsRgb;
+ECS_STRUCT(EcsRgb, {
+    float r;
+    float g;
+    float b;
+});
 
-typedef struct EcsRgba {
-    ecs_rgba_t value;
-} EcsRgba;
+typedef EcsRgb ecs_rgb_t;
 
-typedef struct EcsSpecular {
+ECS_STRUCT(EcsRgba, {
+    float r;
+    float g;
+    float b;
+    float a;
+});
+
+typedef EcsRgba ecs_rgba_t;
+
+ECS_STRUCT(EcsSpecular, {
     float specular_power;
     float shininess;
-} EcsSpecular;
+});
 
-typedef struct EcsEmissive {
+ECS_STRUCT(EcsEmissive, {
     float value;
-} EcsEmissive;
-
-typedef struct FlecsComponentsGraphics {
-    ECS_DECLARE_COMPONENT(EcsCamera);
-    ECS_DECLARE_COMPONENT(EcsDirectionalLight);
-    ECS_DECLARE_COMPONENT(EcsRgb);
-    ECS_DECLARE_COMPONENT(EcsRgba);
-    ECS_DECLARE_COMPONENT(EcsSpecular);
-    ECS_DECLARE_COMPONENT(EcsEmissive);
-} FlecsComponentsGraphics;
+});
 
 FLECS_COMPONENTS_GRAPHICS_API
 void FlecsComponentsGraphicsImport(
     ecs_world_t *world);
-
-#define FlecsComponentsGraphicsImportHandles(handles)\
-    ECS_IMPORT_COMPONENT(handles, EcsCamera);\
-    ECS_IMPORT_COMPONENT(handles, EcsDirectionalLight);\
-    ECS_IMPORT_COMPONENT(handles, EcsRgb);\
-    ECS_IMPORT_COMPONENT(handles, EcsRgba);\
-    ECS_IMPORT_COMPONENT(handles, EcsSpecular);\
-    ECS_IMPORT_COMPONENT(handles, EcsEmissive);
 
 #ifdef __cplusplus
 }
@@ -162,7 +147,7 @@ public:
     using Emissive = EcsEmissive;
 
     graphics(flecs::world& ecs) {
-        FlecsComponentsGraphicsImport(ecs.c_ptr());
+        FlecsComponentsGraphicsImport(ecs);
 
         ecs.module<flecs::components::graphics>();
         ecs.pod_component<Camera>("flecs::components::graphics::Camera");
