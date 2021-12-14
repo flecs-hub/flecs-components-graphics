@@ -1,5 +1,6 @@
+#define FLECS_COMPONENTS_GRAPHICS_IMPL
+
 #include <flecs_components_graphics.h>
-#include <string.h>
 
 ECS_CTOR(EcsCamera, ptr, {
     ptr->position[0] = 0.0f;
@@ -17,7 +18,7 @@ ECS_CTOR(EcsCamera, ptr, {
     ptr->fov = 30;
     ptr->near = 0.1;
     ptr->far = 1000;
-});
+})
 
 void FlecsComponentsGraphicsImport(
     ecs_world_t *world)
