@@ -20,6 +20,7 @@ ECS_STRUCT(EcsCamera, {
     float fov;
     float near;
     float far;
+    bool ortho;
 });
 
 ECS_STRUCT(EcsDirectionalLight, {
