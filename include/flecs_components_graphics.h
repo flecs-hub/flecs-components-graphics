@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsCamera, {
     vec3 position;
     vec3 lookat;
@@ -23,12 +24,14 @@ ECS_STRUCT(EcsCamera, {
     bool ortho;
 });
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsDirectionalLight, {
     vec3 position;
     vec3 direction;
     vec3 color;
 });
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsRgb, {
     float r;
     float g;
@@ -37,6 +40,7 @@ ECS_STRUCT(EcsRgb, {
 
 typedef EcsRgb ecs_rgb_t;
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsRgba, {
     float r;
     float g;
@@ -46,11 +50,13 @@ ECS_STRUCT(EcsRgba, {
 
 typedef EcsRgba ecs_rgba_t;
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsSpecular, {
     float specular_power;
     float shininess;
 });
 
+FLECS_COMPONENTS_GRAPHICS_API
 ECS_STRUCT(EcsEmissive, {
     float value;
 });
