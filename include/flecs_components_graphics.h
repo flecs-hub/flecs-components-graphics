@@ -75,7 +75,7 @@ void FlecsComponentsGraphicsImport(
 namespace flecs {
 namespace components {
 
-class graphics : FlecsComponentsGraphics {
+class graphics {
 public:
     struct rgb_t : ecs_rgb_t {
         operator float*() {
@@ -154,15 +154,17 @@ public:
     using Emissive = EcsEmissive;
 
     graphics(flecs::world& ecs) {
+        // Load module contents
         FlecsComponentsGraphicsImport(ecs);
 
+        // Bind C++ types with module contents
         ecs.module<flecs::components::graphics>();
-        ecs.pod_component<Camera>("flecs::components::graphics::Camera");
-        ecs.pod_component<DirectionalLight>("flecs::components::graphics::DirectionalLight");
-        ecs.pod_component<Rgb>("flecs::components::graphics::Rgb");
-        ecs.pod_component<Rgba>("flecs::components::graphics::Rgba");
-        ecs.pod_component<Specular>("flecs::components::graphics::Specular");
-        ecs.pod_component<Emissive>("flecs::components::graphics::Emissive");
+        ecs.component<Camera>();
+        ecs.component<DirectionalLight>();
+        ecs.component<Rgb>();
+        ecs.component<Rgba>();
+        ecs.component<Specular>();
+        ecs.component<Emissive>();
     }
 };
 
