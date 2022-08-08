@@ -97,6 +97,7 @@ public:
             this->set_fov(30);
             this->near_ = 0.1f;
             this->far_ = 100;
+            this->ortho = false;
         }
 
         void set_position(float x, float y, float z) {
