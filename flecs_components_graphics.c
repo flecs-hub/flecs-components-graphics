@@ -1,6 +1,6 @@
 #define FLECS_COMPONENTS_GRAPHICS_IMPL
 
-#include <flecs_components_graphics.h>
+#include "flecs_components_graphics.h"
 
 ECS_TAG_DECLARE(EcsSun);
 
@@ -58,3 +58,4 @@ void FlecsComponentsGraphicsImport(
         .ctor = ecs_ctor(EcsAtmosphere)
     });
 }
+
